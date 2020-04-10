@@ -1,0 +1,116 @@
+<div th:fragment="header">
+<!-- related code of header file -->
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+					
+                        <ul>
+                            <li><a th:href="@{/}">Win2019 Global Software Development Personal Project. For Demonstration purposes only.</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="header-right">
+                        <ul class="list-unstyled list-inline" th:if="${not #lists.isEmpty(user_det)}">
+							<!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Sell Item</a></li>-->
+							<li><a th:href="@{/dashboard}"><i class="fa fa-tachometer"></i> Dashboard</a></li> 
+							<li><a href=""><i class="fa fa-user"></i> <span th:text="${user_det.Name}"/></a></li>
+							<li><a th:href="@{/user/logout}"><i class="fa fa-sign-out"></i> Logout </a></li>
+
+                        </ul>
+                        <ul class="list-unstyled list-inline" th:if="${#lists.isEmpty(user_det)}">
+							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Sell Item</a></li>
+							<li><a th:href="@{/user/login}"><i class="fa fa-sign-in"></i> Login </a></li>
+							<li><a th:href="@{/user/register}"><i class="fa fa-user"></i> Register</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End header area -->
+    
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo">
+                        <h1><a th:href="@{/}">
+						<img th:src="@{/resources/img/logo.png}" alt="Gator Trader"/>
+						</a></h1>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6">
+                    <div class="shopping-item">
+                        <a href="cart.html"><i class="fa fa-shopping-cart"></i> Sell Item</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End site branding area -->
+    
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div> 
+                <div class="navbar-collapse collapse" th:if="${not #lists.isEmpty(user_det)}">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a th:href="@{/}"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="shop.html">Sell Item</a></li>
+						<li><a th:href="@{/dashboard}">Dashboard</a></li>
+                        <li style="padding-top:8px;border:0px solid;">
+						  <form action="">
+							<select class="country_to_state country_select" id="category" name="category">
+								<option value="A">Item Categories</option>
+								<option value="A">All</option>
+								<option value="Electronics">Electronics</option>
+								<option value="Books">Books</option>
+								<option value="Furniture">Furniture</option>
+								<option value="Other">Other</option>
+							</select>
+							
+								<input type="text" placeholder="Search products..."  style="width:400px;">
+								<input type="submit" value="Search">
+							</form>
+						</li>
+                    </ul>
+                    
+                </div>  
+                <div class="navbar-collapse collapse" th:if="${#lists.isEmpty(user_det)}">
+                	<ul class="nav navbar-nav">
+                        <li class="active"><a th:href="@{/}"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="shop.html">Sell Item</a></li>
+						<li><a th:href="@{/user/login}">Login</a></li>
+						<li><a th:href="@{/user/register}">Register</a></li>
+                        <li style="padding-top:8px;border:0px solid;">
+						  <form action="">
+							<select class="country_to_state country_select" id="category" name="category">
+								<option value="A">Item Categories</option>
+								<option value="A">All</option>
+								<option value="E">Electronics</option>
+								<option value="B">Books</option>
+								<option value="F">Furniture</option>
+								<option value="O">Other</option>
+							</select>
+							
+								<input type="text" placeholder="Search products..."  style="width:400px;">
+								<input type="submit" value="Search">
+							</form>
+						</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End mainmenu area -->
+</div>

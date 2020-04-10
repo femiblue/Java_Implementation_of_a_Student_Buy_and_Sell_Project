@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gator Trader - Sign Up</title>
+    
+    <!-- Google Fonts -->
+    <link th:href="@{http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600}" rel='stylesheet' type='text/css'>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300}" rel='stylesheet' type='text/css'>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Raleway:400,100}" rel='stylesheet' type='text/css'>
+    
+    <!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/bootstrap.min.css}"/>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/font-awesome.min.css}"/>
+	 <!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/owl.carousel.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/responsive.css}"/>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script th:src="@{https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js}"></script>
+      <script th:src="@{https://oss.maxcdn.com/respond/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+  </head>
+  <body>
+   
+    <div th:replace="/header :: header"> </div>
+      
+    
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    
+                   <!-- side bar--> 
+                   <div th:replace="/side :: side"> </div>
+                    
+                    
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="product-content-right">
+                        <div class="woocommerce">
+                            
+
+                            <form enctype="multipart/form-data" class="checkout" method="post" name="checkout" th:action="@{/user/create}" th:object="${Users}" >
+
+                                <div id="customer_details" class="col2-set">
+                                    <div class="col-1">
+                                        <div class="woocommerce-billing-fields">
+                                            <h1>Sign Up</h1>
+                                            
+                                            <p id="billing_first_name_field" class="form-row form-row-first validate-required">
+                                                <label class="" for="billing_first_name">Full Name <abbr title="required" class="required">*</abbr> </label>
+                                                <input type="text" value="" placeholder="Full Name" th:field="*{Name}"  class="input-text "/>
+                                            </p>
+
+                                            
+                                            <div class="clear"></div>
+
+                                            <p id="billing_company_field" class="form-row form-row-wide">
+                                                <label class="" for="billing_company">Email <abbr title="required" class="required">*</abbr></label>
+                                                <input type="email" value="" placeholder="Email" th:field="*{Email}"  class="input-text "/>
+                                            </p>
+
+                                            <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
+                                                <label class="" for="billing_address_1">Username <abbr title="required" class="required">*</abbr> </label>
+                                                <input type="text" value="" placeholder="Username" th:field="*{Username}"  class="input-text "/>
+                                            </p>
+											<p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
+                                                <label class="" for="billing_address_1">Password <abbr title="required" class="required">*</abbr> </label>
+                                                <input type="password" value="" placeholder="Password" th:field="*{Password}"  class="input-text "/>
+                                            </p>
+                                            <p id="billing_company_field" class="form-row form-row-wide validate-required">
+                                            <input type="checkbox" data-order_button_text="" checked="checked" value="bacs" name="payment_method" class="input-radio" id="payment_method_bacs">
+                                            <label for="payment_method_bacs">I Agree to Terms <abbr title="required" class="required">*</abbr></label>
+												
+											</p>
+                                            <div class="clear"></div>
+
+
+                                         
+                                        </div>
+                                    </div>
+
+                                    
+
+
+
+
+                                </div>
+
+                                
+
+                                <div id="order_review" style="position: relative;">
+                                  
+
+
+                                    <div id="payment">
+                
+
+                                        <div class="form-row place-order">
+
+                                            <input type="submit" data-value="Register" value="Register" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+                                            
+
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>                       
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div th:replace="/footer :: footer"> </div>
+  </body>
+</html>

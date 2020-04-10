@@ -1,0 +1,24 @@
+<div th:fragment="side">
+<!-- related code of side file -->
+			
+			<div class="single-sidebar">
+				<h2 class="sidebar-title">Latest Items</h2>
+				<div class="thubmnail-recent" th:each="side_item: ${side_items}">
+					<img th:src="@{'/resources/img/'+${side_item.Photo}}" class="recent-thumb" alt="">
+					<h2><a th:href="@{'/item/show/'+${side_item.Id}}"><span th:text="${side_item.Name}" ></span></a></h2>
+					<div class="product-sidebar-price">
+						<ins>&euro;<span th:text="${side_item.Price}" ></span></ins>
+					</div> 
+					<br/><br/>
+					<div class="product-wid-rating" >
+					<a th:href="@{'/item/show/'+${side_item.Id}}" ><i class="fa fa-envelope-o"></i> Message Seller</a>
+					</div><br/>                        
+				</div>
+				  
+
+
+
+			</div>
+			
+			
+</div>

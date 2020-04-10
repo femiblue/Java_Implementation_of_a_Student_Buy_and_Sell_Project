@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gator Trader - Item</title>
+    
+    <!-- Google Fonts -->
+    <link th:href="@{http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600}" rel='stylesheet' type='text/css'>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300}" rel='stylesheet' type='text/css'>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Raleway:400,100}" rel='stylesheet' type='text/css'>
+    
+    <!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/bootstrap.min.css}"/>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/font-awesome.min.css}"/>
+	 <!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/owl.carousel.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/responsive.css}"/>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script th:src="@{https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js}"></script>
+      <script th:src="@{https://oss.maxcdn.com/respond/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+  </head>
+  <body>
+   
+    <div th:replace="/header :: header"> </div> 
+    
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                                        
+                   <!-- side bar--> 
+                   <div th:replace="/side :: side"> </div>
+                    
+                 
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="product-content-right">
+                        <div class="product-breadcroumb">
+                            <a th:href="@{/}">Home</a>
+                            <a href=""><span th:text="${item.Categories}" ></span></a>
+                            <a href=""><span th:text="${item.Name}" ></span></a>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="product-images">
+                                    <div class="product-main-img">
+                                        <img th:src="@{'/resources/img/'+${item.Photo}}" alt="">
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="product-inner">
+                                    <h2 class="product-name"><span th:text="${item.Name}" ></span></h2>
+                                    <div class="product-inner-price">
+                                        <ins>&euro;<span th:text="${item.Price}" ></span></ins>
+                                    </div>     
+                                    
+                                    <div class="product-inner-category">
+									    <p>Seller: <a href=""><span th:text="${item_user.Name}" ></span></a> | Category: <a href=""><span th:text="${item.Categories}" ></span></a>.</p>
+                                    </div> 
+                                    
+                                    <div role="tabpanel">
+                                        <ul class="product-tab" role="tablist">
+                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">About Item</a></li>
+                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Message Seller</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                                <h2>Item Description</h2>  
+                                                <p><span th:text="${item.Name}" ></span></p>
+
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="profile">
+                                                <h2>Message Seller</h2>
+                                                <div class="submit-review">
+                                                    
+                                                    <p><label for="review">If you want to buy this send a message to the seller below. Caution: All transactions should be done in person, and all members should meet in the Library. Do not pay for items online or without a formal meet.</label> 
+													<textarea name="review" id="" cols="30" rows="10" style="height:200px;"></textarea></p>
+                                                    <p><input type="submit" value="Send Message"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <div th:replace="/footer :: footer"> </div>
+  </body>
+</html>
